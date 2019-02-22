@@ -14,6 +14,21 @@ CREATE TABLE employee (
   OIDS=FALSE
 );
 
+INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+   'Smith',
+   'John',
+   '12345',
+   '1',
+   'cashier',
+   'password123');
+   
+INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+   'Doe',
+   'Jane',
+   '13579',
+   '1',
+   'general manager',
+   'password321');
 
 1.) Record ID (This is the primary key of the table)
 2.) First name
