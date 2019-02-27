@@ -1,8 +1,8 @@
 CREATE TABLE employee (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
-  lastName varchar(255) NOT NULL DEFAULT(''),
-  firstName varchar(255) NOT NULL DEFAULT(''),
-  employee_id numeric(5, 0) NOT NULL DEFAULT(0),
+  lastname varchar(255) NOT NULL DEFAULT(''),
+  firstname varchar(255) NOT NULL DEFAULT(''),
+  employeeid numeric(5, 0) NOT NULL DEFAULT(0),
   active BIT,
   classification varchar(32),
   password varchar(32),
