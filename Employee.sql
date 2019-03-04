@@ -2,7 +2,7 @@ CREATE TABLE employee (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   lastname varchar(255) NOT NULL DEFAULT(''),
   firstname varchar(255) NOT NULL DEFAULT(''),
-  employeeid numeric(5, 0) NOT NULL DEFAULT(0),
+  employeeid SERIAL,
   active BIT,
   classification varchar(32),
   password varchar(32),
@@ -14,18 +14,16 @@ CREATE TABLE employee (
   OIDS=FALSE
 );
 
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+INSERT INTO employee (lastName, firstName, active, classification, password) VALUES (
    'Smith',
    'John',
-   '12345',
    '1',
    'cashier',
    'password123');
-   
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+
+INSERT INTO employee (lastName, firstName, active, classification, password) VALUES (
    'Doe',
    'Jane',
-   '13579',
    '1',
    'general manager',
    'password321');
