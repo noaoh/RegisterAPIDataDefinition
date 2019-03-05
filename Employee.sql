@@ -5,7 +5,7 @@ CREATE TABLE employee (
   employeeid numeric(5, 0) NOT NULL DEFAULT(0),
   active BIT,
   classification varchar(32),
-  password varchar(64),
+  password char(64),
   createdon timestamp without time zone NOT NULL DEFAULT now(),
   manager uuid,
   CONSTRAINT employee_pkey PRIMARY KEY (id),
