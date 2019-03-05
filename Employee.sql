@@ -14,7 +14,7 @@ CREATE TABLE employee (
   OIDS=FALSE
 );
 
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+INSERT INTO employee (lastName, firstName, employeeid, active, classification, password) VALUES (
    'Smith',
    'John',
    '12345',
@@ -22,7 +22,7 @@ INSERT INTO employee (lastName, firstName, employee_id, active, classification, 
    'cashier',
    'password123');
    
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+INSERT INTO employee (lastName, firstName, employeeid, active, classification, password) VALUES (
    'Doe',
    'Jane',
    '13579',
