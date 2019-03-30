@@ -1,7 +1,7 @@
 CREATE TABLE transaction (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   quantity int NOT NULL DEFAULT(1),
-  totalcost float(8,2) NOT NULL DEFAULT(0.00),
+  totalcost float(25) NOT NULL DEFAULT(0.00),
   createdon timestamp without time zone NOT NULL DEFAULT now(),
   product uuid,
   employee uuid,
