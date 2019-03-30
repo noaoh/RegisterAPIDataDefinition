@@ -5,7 +5,7 @@ CREATE TABLE transaction (
   createdon timestamp without time zone NOT NULL DEFAULT now(),
   product uuid,
   employee uuid,
-  CONSTRAINT transaction_pkey PRIMARY KEY (id),
+  CONSTRAINT transaction_pkey PRIMARY KEY (id, product),
   FOREIGN KEY (product) REFERENCES product(id),
   FOREIGN KEY (employee) REFERENCES employee(id)
 ) WITH (
