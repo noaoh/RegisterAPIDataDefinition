@@ -15,7 +15,7 @@ CREATE TABLE product (
 
 ALTER TABLE product MODIFY COLUMN
 (
-  count int NOT NULL DEFAILT(0) unsigned
+  count int NOT NULL DEFAULT(0) unsigned
 )
 
 --DROP INDEX ix_product_lookupcode;
