@@ -1,11 +1,11 @@
 CREATE TABLE employee (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
-  lastName varchar(255) NOT NULL DEFAULT(''),
-  firstName varchar(255) NOT NULL DEFAULT(''),
-  employee_id numeric(5, 0) NOT NULL DEFAULT(0),
+  lastname varchar(255) NOT NULL DEFAULT(''),
+  firstname varchar(255) NOT NULL DEFAULT(''),
+  employeeid SERIAL,
   active BIT,
   classification varchar(32),
-  password varchar(32),
+  password char(64),
   createdon timestamp without time zone NOT NULL DEFAULT now(),
   manager uuid,
   CONSTRAINT employee_pkey PRIMARY KEY (id),
@@ -14,18 +14,16 @@ CREATE TABLE employee (
   OIDS=FALSE
 );
 
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+INSERT INTO employee (lastName, firstName, active, classification, password) VALUES (
    'Smith',
    'John',
-   '12345',
    '1',
    'cashier',
    'password123');
-   
-INSERT INTO employee (lastName, firstName, employee_id, active, classification, password) VALUES (
+
+INSERT INTO employee (lastName, firstName, active, classification, password) VALUES (
    'Doe',
    'Jane',
-   '13579',
    '1',
    'general manager',
    'password321');
