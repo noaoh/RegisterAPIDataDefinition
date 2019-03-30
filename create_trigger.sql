@@ -1,17 +1,14 @@
-CREATE TRIGGER product_inventory_update
-	ON TRANSACTION
-	AFTER INSERT
-	AS 
+CREATE OR REPLACE FUNCTION update_product_inventory(ProductId uuid , Quantity int) RETURNS TRIGGER AS
+$BODY$
 BEGIN
-	DECLARE 
-	@ProductId numeric,
-	@Quantity numeric
 
-	SELECT @ProductId = INSERTED.Product_Id,
-		@Quantity = INSERTED.quantity
-	FROM INSERTED
+	UPDATE Product
+		SET Product.count =Product.count - Quatity
+		WHERE Product.id = ProductId;
 
-	UPDATE Inventory
-		SET QUANTITY = QUANTITY - @Quatity
-		WHERE Product_Id = @ProductId
+	RETURN null;
+
 END;
+
+CREATE TRIGGER update_product AFTER INSERT ON Transaction
+For EACH ROW EXECUTE PROCEDURE update_product_inventory();
