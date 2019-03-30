@@ -8,11 +8,15 @@ CREATE TABLE product (
   count int NOT NULL DEFAULT(0), --Stored in the edu.uark.models.entities:ProductEntity#count property. See also the named constant defined in edu.uark.models.entities.fieldnames:ProductFieldNames that is used for Java <-> SQL mappings.
   createdon timestamp without time zone NOT NULL DEFAULT now(), --Stored in the edu.uark.dataaccess.entities:BaseEntity#createdOn property. See also the named constant defined in edu.uark.dataaccess.entities:BaseFieldNames that is used for Java <-> SQL mappings.
   price decimal(12, 2) NOT NULL DEFAULT(0), -- Stored in the edu.uark.edu.models.entities:ProductEntity#price property.  See also the named constant defined in edu.uark.models.entities.fieldNames:ProductFieldNames that is used for Java <-> SQL mappings.
-  quantity int NOT NULL DEFAULT(0), --Added by Rhett to keep track of how much we have. 
   CONSTRAINT product_pkey PRIMARY KEY (id)
 ) WITH (
   OIDS=FALSE
 );
+
+ALTER TABLE product MODIFY COLUMN
+(
+  count int NOT NULL DEFAILT(0) unsigned
+)
 
 --DROP INDEX ix_product_lookupcode;
 
