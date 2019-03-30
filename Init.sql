@@ -46,7 +46,7 @@ CREATE TABLE employee (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   lastname varchar(255) NOT NULL DEFAULT(''),
   firstname varchar(255) NOT NULL DEFAULT(''),
-  employeeid SERIAL,
+  employeeid int NOT NULL DEFAULT(0),
   active BIT,
   classification varchar(32),
   password char(64),
@@ -57,6 +57,12 @@ CREATE TABLE employee (
 ) WITH (
   OIDS=FALSE
 );
+
+-- A cheap way to prevent (((them))) from figuring out how many employees you
+-- have.  If they figure out who the founder is, it's game over.
+CREATE SEQUENCE employee_employeeid_seq AS int START WITH 253 INCREMENT BY 7 OWNED BY employee.employeeid;
+
+ALTER TABLE employee ALTER employeeid SET DEFAULT nextval('employee_employeeid_seq');
 
 INSERT INTO employee (lastName, firstName, active, classification, password) VALUES (
    'Smith',
