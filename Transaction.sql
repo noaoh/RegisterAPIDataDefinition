@@ -11,3 +11,5 @@ CREATE TABLE transaction (
 ) WITH (
   OIDS=FALSE
 );
+
+

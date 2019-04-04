@@ -5,7 +5,7 @@ CREATE EXTENSION pgcrypto; --Allows PostgreSQL to understand UUIDs. Only have to
 CREATE TABLE product (
   id uuid NOT NULL DEFAULT gen_random_uuid(), --The record ID. Stored in the edu.uark.dataaccess.entities:BaseEntity#id property. See also the named constant defined in edu.uark.dataaccess.entities:BaseFieldNames that is used for Java <-> SQL mappings.
   lookupcode character varying(32) NOT NULL DEFAULT(''), --Stored in the edu.uark.models.entities:ProductEntity#lookupCode property. See also the named constant defined in edu.uark.models.entities.fieldnames:ProductFieldNames that is used for Java <-> SQL mappings.
-  count int NOT NULL DEFAULT(0), --Stored in the edu.uark.models.entities:ProductEntity#count property. See also the named constant defined in edu.uark.models.entities.fieldnames:ProductFieldNames that is used for Java <-> SQL mappings.
+  count int NOT NULL DEFAULT(0) check (count > -1), --Stored in the edu.uark.models.entities:ProductEntity#count property. See also the named constant defined in edu.uark.models.entities.fieldnames:ProductFieldNames that is used for Java <-> SQL mappings.
   createdon timestamp without time zone NOT NULL DEFAULT now(), --Stored in the edu.uark.dataaccess.entities:BaseEntity#createdOn property. See also the named constant defined in edu.uark.dataaccess.entities:BaseFieldNames that is used for Java <-> SQL mappings.
   price float(25) NOT NULL DEFAULT(0), -- Stored in the edu.uark.edu.models.entities:ProductEntity#price property.  See also the named constant defined in edu.uark.models.entities.fieldNames:ProductFieldNames that is used for Java <-> SQL mappings.
   CONSTRAINT product_pkey PRIMARY KEY (id)
@@ -101,3 +101,5 @@ CREATE TABLE transaction (
 ) WITH (
   OIDS=FALSE
 );
+
+
